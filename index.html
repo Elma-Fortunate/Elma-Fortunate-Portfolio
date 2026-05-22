@@ -8,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
-    /* ==============================
-       CSS CUSTOM PROPERTIES
-    ============================== */
     :root {
       --bg:        #0b0e14;
       --surface:   #111620;
@@ -29,10 +26,6 @@
       --radius-lg: 20px;
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    /* ==============================
-       RESET & BASE
-    ============================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -44,10 +37,6 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; }
-
-    /* ==============================
-       GRID BACKGROUND TEXTURE
-    ============================== */
     body::before {
       content: '';
       position: fixed;
@@ -59,10 +48,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
-    /* ==============================
-       STICKY NAVBAR
-    ============================== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -78,7 +63,6 @@
       transition: box-shadow var(--transition);
     }
     nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.4); }
-
     .nav-logo {
       font-family: var(--font-display);
       font-size: 1.2rem;
@@ -86,7 +70,6 @@
       letter-spacing: 0.01em;
     }
     .nav-logo span { color: var(--accent); }
-
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -101,8 +84,6 @@
       transition: color var(--transition);
     }
     .nav-links a:hover { color: var(--accent); }
-
-    /* Hamburger */
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -118,10 +99,6 @@
       border-radius: 2px;
       transition: var(--transition);
     }
-
-    /* ==============================
-       SECTION WRAPPER
-    ============================== */
     section {
       position: relative;
       z-index: 1;
@@ -144,10 +121,6 @@
       line-height: 1.2;
       margin-bottom: 1.5rem;
     }
-
-    /* ==============================
-       HERO SECTION
-    ============================== */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -158,8 +131,6 @@
       z-index: 1;
       overflow: hidden;
     }
-
-    /* Decorative orb */
     #hero::after {
       content: '';
       position: absolute;
@@ -171,7 +142,6 @@
       border-radius: 50%;
       pointer-events: none;
     }
-
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -192,7 +162,6 @@
       height: 1px;
       background: var(--accent);
     }
-
     .hero-name {
       font-family: var(--font-display);
       font-size: clamp(3rem, 8vw, 7rem);
@@ -202,11 +171,7 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.25s forwards;
     }
-    .hero-name em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
+    .hero-name em { font-style: italic; color: var(--accent); }
     .hero-title {
       font-size: clamp(1rem, 2vw, 1.25rem);
       font-weight: 300;
@@ -217,7 +182,6 @@
       animation: fadeUp 0.8s 0.4s forwards;
     }
     .hero-title strong { color: var(--text); font-weight: 500; }
-
     .hero-desc {
       font-size: 1.05rem;
       color: var(--text-dim);
@@ -227,7 +191,6 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.55s forwards;
     }
-
     .hero-ctas {
       display: flex;
       gap: 1rem;
@@ -235,10 +198,6 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.7s forwards;
     }
-
-    /* ==============================
-       BUTTONS
-    ============================== */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -253,10 +212,7 @@
       transition: var(--transition);
       border: none;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #0b0e14;
-    }
+    .btn-primary { background: var(--accent); color: #0b0e14; }
     .btn-primary:hover {
       background: #81d4fa;
       transform: translateY(-2px);
@@ -273,8 +229,6 @@
       transform: translateY(-2px);
     }
     .btn svg { width: 16px; height: 16px; }
-
-    /* Hero scroll indicator */
     .scroll-indicator {
       position: absolute;
       bottom: 2.5rem;
@@ -304,31 +258,16 @@
       background: var(--accent);
       animation: scanLine 2s 1.5s ease-in-out infinite;
     }
-
-    /* ==============================
-       ABOUT SECTION
-    ============================== */
     #about { border-top: 1px solid var(--border); }
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: start;
     }
-    .about-text p {
-      color: var(--text-dim);
-      margin-bottom: 1.2rem;
-      font-size: 1.05rem;
-    }
+    .about-text p { color: var(--text-dim); margin-bottom: 1.2rem; font-size: 1.05rem; }
     .about-text p strong { color: var(--text); }
-
-    .strengths {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
+    .strengths { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
     .strength-tag {
       background: var(--accent-glow2);
       border: 1px solid var(--border);
@@ -340,30 +279,15 @@
       letter-spacing: 0.04em;
       transition: var(--transition);
     }
-    .strength-tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-glow);
-    }
-
-    /* Tools panel */
+    .strength-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
     .tools-panel {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 2rem;
     }
-    .tools-panel h3 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--text-hi);
-      margin-bottom: 1.5rem;
-    }
-    .tools-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-    }
+    .tools-panel h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-hi); margin-bottom: 1.5rem; }
+    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .tool-item {
       display: flex;
       align-items: center;
@@ -377,27 +301,14 @@
       color: var(--text);
       transition: var(--transition);
     }
-    .tool-item:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .tool-item:hover { border-color: var(--accent); color: var(--accent); }
     .tool-icon {
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
     }
-
-    /* ==============================
-       PROJECTS SECTION
-    ============================== */
     #projects { border-top: 1px solid var(--border); }
-
     .projects-header {
       display: flex;
       align-items: flex-end;
@@ -406,16 +317,12 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-    .projects-grid .project-card:first-child {
-      grid-column: 1 / -1;
-    }
-
+    .projects-grid .project-card:first-child { grid-column: 1 / -1; }
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -443,8 +350,6 @@
       box-shadow: 0 16px 48px rgba(0,0,0,0.3), 0 0 0 1px rgba(79,195,247,0.1);
     }
     .project-card:hover::before { opacity: 1; }
-
-    /* Featured card extras */
     .project-card.featured {
       flex-direction: row;
       align-items: flex-start;
@@ -463,6 +368,26 @@
       gap: 0.75rem;
     }
 
+    /* HR Analytics wide card visual panel */
+    .project-card.hr-featured {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2.5rem;
+      grid-column: 1 / -1;
+    }
+    .project-card.hr-featured .project-content { flex: 1; }
+    .project-card.hr-featured .project-visual {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
     .project-badge {
       display: inline-flex;
       align-items: center;
@@ -479,26 +404,9 @@
       margin-bottom: 0.25rem;
       width: fit-content;
     }
-
-    .project-title {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--text-hi);
-      line-height: 1.3;
-    }
-
-    .project-summary {
-      font-size: 0.92rem;
-      color: var(--text-dim);
-      line-height: 1.7;
-    }
-
-    .project-insights {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .project-title { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-hi); line-height: 1.3; }
+    .project-summary { font-size: 0.92rem; color: var(--text-dim); line-height: 1.7; }
+    .project-insights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
     .project-insights li {
       display: flex;
       align-items: flex-start;
@@ -506,18 +414,8 @@
       font-size: 0.85rem;
       color: var(--text);
     }
-    .project-insights li::before {
-      content: '→';
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 0.05em;
-    }
-
-    .project-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
+    .project-insights li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05em; }
+    .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tool-pill {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -528,7 +426,6 @@
       border-radius: 100px;
       letter-spacing: 0.03em;
     }
-
     .project-footer {
       display: flex;
       align-items: center;
@@ -549,50 +446,47 @@
     }
     .project-link:hover { color: #81d4fa; gap: 0.65rem; }
     .project-link svg { width: 13px; height: 13px; }
-
-    /* Mini bar chart (decorative) */
-    .mini-chart {
-      display: flex;
-      align-items: flex-end;
-      gap: 4px;
-      height: 60px;
-    }
-    .mini-bar {
-      flex: 1;
-      background: var(--border);
-      border-radius: 3px 3px 0 0;
-      transition: var(--transition);
-    }
+    .mini-chart { display: flex; align-items: flex-end; gap: 4px; height: 60px; }
+    .mini-bar { flex: 1; background: var(--border); border-radius: 3px 3px 0 0; transition: var(--transition); }
     .mini-bar.lit { background: var(--accent); opacity: 0.7; }
-    .chart-label {
-      font-size: 0.7rem;
-      color: var(--text-dim);
+    .chart-label { font-size: 0.7rem; color: var(--text-dim); text-align: center; }
+
+    /* HR Analytics KPI mini cards */
+    .hr-kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hr-kpi {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
       text-align: center;
     }
+    .hr-kpi-val { font-size: 1.1rem; font-weight: 700; color: var(--accent); font-family: var(--font-display); line-height: 1.2; }
+    .hr-kpi-lbl { font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.03em; margin-top: 0.15rem; }
+    .hr-outcome-bar { display: flex; flex-direction: column; gap: 5px; }
+    .hr-bar-row { display: flex; align-items: center; gap: 6px; }
+    .hr-bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .hr-bar-fill { height: 100%; border-radius: 3px; }
 
-    /* ==============================
-       EXPERIENCE & SKILLS SECTION
-    ============================== */
     #experience { border-top: 1px solid var(--border); }
-
     .exp-skills-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       gap: 4rem;
       align-items: start;
     }
-
     .timeline { position: relative; }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 12px;
-      top: 8px;
-      bottom: 0;
+      left: 12px; top: 8px; bottom: 0;
       width: 1px;
       background: var(--border);
     }
-
     .exp-item {
       position: relative;
       padding-left: 2.5rem;
@@ -605,96 +499,26 @@
     .exp-item::before {
       content: '';
       position: absolute;
-      left: 7px;
-      top: 7px;
-      width: 11px;
-      height: 11px;
+      left: 7px; top: 7px;
+      width: 11px; height: 11px;
       border-radius: 50%;
       background: var(--bg);
       border: 2px solid var(--accent);
     }
-
-    .exp-meta {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
-    }
-    .exp-role {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--text-hi);
-      margin-bottom: 0.2rem;
-    }
-    .exp-company {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 0.75rem;
-    }
-    .exp-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .exp-points li {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      padding-left: 1rem;
-      position: relative;
-    }
-    .exp-points li::before {
-      content: '·';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* Skills panel */
+    .exp-meta { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+    .exp-role { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-hi); margin-bottom: 0.2rem; }
+    .exp-company { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.75rem; }
+    .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .exp-points li { font-size: 0.85rem; color: var(--text-dim); padding-left: 1rem; position: relative; }
+    .exp-points li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
     .skills-panel { display: flex; flex-direction: column; gap: 2rem; }
-    .skill-group h4 {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.9rem;
-    }
+    .skill-group h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
     .skill-bars { display: flex; flex-direction: column; gap: 0.7rem; }
-    .skill-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .skill-name {
-      font-size: 0.82rem;
-      color: var(--text);
-      width: 90px;
-      flex-shrink: 0;
-    }
-    .skill-bar-track {
-      flex: 1;
-      height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), #81d4fa);
-      border-radius: 2px;
-      width: 0%;
-      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    /* ==============================
-       CV SECTION
-    ============================== */
-    #cv {
-      border-top: 1px solid var(--border);
-    }
+    .skill-row { display: flex; align-items: center; gap: 0.75rem; }
+    .skill-name { font-size: 0.82rem; color: var(--text); width: 90px; flex-shrink: 0; }
+    .skill-bar-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #81d4fa); border-radius: 2px; width: 0%; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    #cv { border-top: 1px solid var(--border); }
     .cv-inner {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -711,200 +535,74 @@
     .cv-inner::before {
       content: '';
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 250px;
-      height: 250px;
+      top: -60px; right: -60px;
+      width: 250px; height: 250px;
       background: radial-gradient(circle, rgba(79,195,247,0.08) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
-    .cv-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      color: var(--text-hi);
-      margin-bottom: 0.5rem;
-    }
-    .cv-text p {
-      font-size: 0.95rem;
-      color: var(--text-dim);
-      max-width: 420px;
-    }
-
-    /* ==============================
-       CONTACT SECTION
-    ============================== */
+    .cv-text h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--text-hi); margin-bottom: 0.5rem; }
+    .cv-text p { font-size: 0.95rem; color: var(--text-dim); max-width: 420px; }
     #contact { border-top: 1px solid var(--border); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .contact-text h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--text-hi);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .contact-text p {
-      color: var(--text-dim);
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .contact-text h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); color: var(--text-hi); line-height: 1.2; margin-bottom: 1rem; }
+    .contact-text p { color: var(--text-dim); font-size: 1rem; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
     .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      display: flex; align-items: center; gap: 1rem;
       padding: 1rem 1.25rem;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       transition: var(--transition);
     }
-    .contact-link:hover {
-      border-color: var(--accent);
-      transform: translateX(4px);
-    }
+    .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
     .contact-link-icon {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
     .contact-link-icon svg { width: 18px; height: 18px; color: var(--accent); }
-    .contact-link-body {}
-    .contact-link-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .contact-link-value {
-      font-size: 0.9rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* Education card */
-    .edu-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-    }
-    .edu-panel h3 {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    .edu-item {
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .contact-link-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .contact-link-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+    .edu-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+    .edu-panel h3 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1.5rem; }
+    .edu-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
     .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .edu-degree {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--text-hi);
-      margin-bottom: 0.2rem;
-    }
+    .edu-degree { font-family: var(--font-display); font-size: 1rem; color: var(--text-hi); margin-bottom: 0.2rem; }
     .edu-school { font-size: 0.85rem; color: var(--text-dim); }
-    .edu-date {
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-top: 0.15rem;
-    }
-
-    /* ==============================
-       FOOTER
-    ============================== */
+    .edu-date { font-size: 0.75rem; color: var(--accent); font-weight: 500; margin-top: 0.15rem; }
     footer {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       border-top: 1px solid var(--border);
       padding: 2rem clamp(1.5rem, 8vw, 8rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
     }
-    footer p {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* ==============================
-       ANIMATIONS
-    ============================== */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scanLine {
-      0%   { left: -100%; }
-      50%  { left: 0%; }
-      100% { left: 100%; }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.6; }
-      50%       { opacity: 1; }
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes scanLine { 0% { left: -100%; } 50% { left: 0%; } 100% { left: 100%; } }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* ==============================
-       RESPONSIVE
-    ============================== */
     @media (max-width: 900px) {
-      .about-grid,
-      .exp-skills-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid, .exp-skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .projects-grid .project-card:first-child { grid-column: auto; }
-      .project-card.featured { flex-direction: column; }
-      .project-card.featured .project-visual { width: 100%; }
+      .project-card.featured, .project-card.hr-featured { flex-direction: column; }
+      .project-card.featured .project-visual, .project-card.hr-featured .project-visual { width: 100%; }
     }
-
     @media (max-width: 620px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 64px;
-        left: 0; right: 0;
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
         background: var(--surface);
         border-bottom: 1px solid var(--border);
-        padding: 1.5rem 2rem;
-        gap: 1.25rem;
-        z-index: 99;
+        padding: 1.5rem 2rem; gap: 1.25rem; z-index: 99;
       }
       .tools-grid { grid-template-columns: 1fr; }
       .hero-ctas { flex-direction: column; }
@@ -913,9 +611,6 @@
 </head>
 <body>
 
-  <!-- ==============================
-       NAVBAR
-  ============================== -->
   <nav id="navbar">
     <div class="nav-logo">Elma<span>.</span></div>
     <ul class="nav-links" id="navLinks">
@@ -929,17 +624,11 @@
     </div>
   </nav>
 
-  <!-- ==============================
-       HERO
-  ============================== -->
   <section id="hero">
     <span class="hero-eyebrow">Available for opportunities</span>
     <h1 class="hero-name">Elma<br><em>Fortunate</em><br>Phiri</h1>
-    <p class="hero-title">
-      <strong>Data Analyst · Certified Data Scientist · BI Analyst</strong>
-    </p>
-    <p class="hero-desc">
-      In health, finance, and the public sector, the difference between good data and great decisions is the person who bridges them. I build that bridge. From credit risk models that help lenders reduce non-performing loans and protect revenue, to health data analyses that expose inefficiencies and sharpen resource allocation, to public sector insights that turn policy questions into evidence-backed answers. I transform complex datasets into clarity that moves organizations forward. I don't just make data accessible; I make it persuasive, precise, and actionable for every room I walk into, from the analyst's desk to the executive boardroom. For any business, that means fewer costly guesses, faster decisions, and a competitive edge built on insight rather than instinct.
+    <p class="hero-title"><strong>Data Analyst · Certified Data Scientist · BI Analyst</strong></p>
+    <p class="hero-desc">In health, finance, and the public sector, the difference between good data and great decisions is the person who bridges them. I build that bridge. From credit risk models that help lenders reduce non-performing loans and protect revenue, to health data analyses that expose inefficiencies and sharpen resource allocation, to public sector insights that turn policy questions into evidence-backed answers. I transform complex datasets into clarity that moves organizations forward. I don't just make data accessible; I make it persuasive, precise, and actionable for every room I walk into, from the analyst's desk to the executive boardroom. For any business, that means fewer costly guesses, faster decisions, and a competitive edge built on insight rather than instinct.</p>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19l-7-7 7-7M22 12H2"/></svg>
@@ -956,23 +645,14 @@
     </div>
   </section>
 
-  <!-- ==============================
-       ABOUT
-  ============================== -->
   <section id="about">
     <p class="section-label">About Me</p>
     <div class="about-grid">
       <div class="about-text fade-in">
         <h2 class="section-title">Data-driven by nature,<br><em style="font-style:italic; color: var(--accent)">story-led by practice.</em></h2>
-        <p>
-          I'm a Data Analyst with a strong foundation in <strong>Python, SQL, Excel and Power BI</strong>, experienced in transforming complex datasets into actionable business insights.
-        </p>
-        <p>
-          My work spans <strong>health, finance, and public sector projects</strong> — from predicting hypertension risk with machine learning to uncovering revenue inefficiencies in Nigerian trade data.
-        </p>
-        <p>
-          I believe in communicating findings clearly — whether the audience is a data engineer or an executive who's never opened a terminal.
-        </p>
+        <p>I'm a Data Analyst with a strong foundation in <strong>Python, SQL, Excel and Power BI</strong>, experienced in transforming complex datasets into actionable business insights.</p>
+        <p>My work spans <strong>health, finance, and public sector projects</strong> — from predicting hypertension risk with machine learning to uncovering revenue inefficiencies in Nigerian trade data.</p>
+        <p>I believe in communicating findings clearly — whether the audience is a data engineer or an executive who's never opened a terminal.</p>
         <div class="strengths">
           <span class="strength-tag">Data Storytelling</span>
           <span class="strength-tag">Predictive Modelling</span>
@@ -984,58 +664,24 @@
           <span class="strength-tag">Deep Learning</span>
         </div>
       </div>
-
       <div class="tools-panel fade-in">
         <h3>Tools & Technologies</h3>
         <div class="tools-grid">
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#3b6fc9;color:#fff;">Py</div>
-            Python
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#e34b2a;color:#fff;">SQL</div>
-            SQL
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#f2c94c;color:#1a1a1a;">BI</div>
-            Power BI
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#1d7044;color:#fff;">XL</div>
-            Excel
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#ee6c22;color:#fff;">SK</div>
-            Scikit-learn
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#ff6b35;color:#fff;">TF</div>
-            TensorFlow
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#2b7a78;color:#fff;">QG</div>
-            QGIS
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#5c6bc0;color:#fff;">CV</div>
-            OpenCV
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#264653;color:#fff;">Pd</div>
-            Pandas
-          </div>
-          <div class="tool-item">
-            <div class="tool-icon" style="background:#457b9d;color:#fff;">Np</div>
-            NumPy
-          </div>
+          <div class="tool-item"><div class="tool-icon" style="background:#3b6fc9;color:#fff;">Py</div>Python</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#e34b2a;color:#fff;">SQL</div>SQL</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#f2c94c;color:#1a1a1a;">BI</div>Power BI</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#1d7044;color:#fff;">XL</div>Excel</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#ee6c22;color:#fff;">SK</div>Scikit-learn</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#ff6b35;color:#fff;">TF</div>TensorFlow</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#2b7a78;color:#fff;">QG</div>QGIS</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#5c6bc0;color:#fff;">CV</div>OpenCV</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#264653;color:#fff;">Pd</div>Pandas</div>
+          <div class="tool-item"><div class="tool-icon" style="background:#457b9d;color:#fff;">Np</div>NumPy</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==============================
-       PROJECTS
-  ============================== -->
   <section id="projects">
     <div class="projects-header fade-in">
       <div>
@@ -1050,12 +696,10 @@
 
     <div class="projects-grid">
 
-      <!-- FEATURED: EWS & PD Modeling -->
+      <!-- FEATURED: Credit Risk EWS -->
       <div class="project-card featured fade-in">
         <div class="project-content">
-          <div class="project-badge">
-            ✦ Featured Project
-          </div>
+          <div class="project-badge">✦ Featured Project</div>
           <h3 class="project-title">Credit Risk EWS &amp; Probability of Default Modeling</h3>
           <p class="project-summary">
             <strong style="color:var(--text)">Problem:</strong> Banks need to catch deteriorating loans before they default — not after. <strong style="color:var(--text)">Approach:</strong> Built an end-to-end credit risk monitoring system: a rule-based Early Warning System using composite risk scoring (DPD, DTI, DSCR, LTV, revolving utilisation), then layered ML models — Logistic Regression, Decision Tree, Random Forest, and Gradient Boosting — to predict individual Probability of Default. SHAP values were used to explain every prediction to credit teams. Outputs were exported to Power BI for live portfolio dashboards and a Flask API for real-time scoring. <strong style="color:var(--text)">Outcome:</strong> A production-ready monitoring system that flags at-risk borrowers, tracks daily PD drift, and delivers colour-coded risk bands directly to decision-makers.
@@ -1080,37 +724,27 @@
             <span style="font-size:0.8rem;color:var(--text-dim);font-style:italic;">GitHub link coming soon</span>
           </div>
         </div>
-        <!-- Decorative risk panel -->
         <div class="project-visual">
           <p class="chart-label" style="font-size:0.72rem;color:var(--text-dim);margin-bottom:0.75rem;">EWS Risk Band Distribution</p>
-          <!-- Stacked risk indicator bars -->
           <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:1rem;">
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#2ECC71;flex-shrink:0;"></div>
-              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
-                <div style="width:52%;height:100%;background:#2ECC71;border-radius:4px;opacity:0.8;"></div>
-              </div>
+              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;"><div style="width:52%;height:100%;background:#2ECC71;border-radius:4px;opacity:0.8;"></div></div>
               <span style="font-size:0.7rem;color:var(--text-dim);width:28px;text-align:right;">52%</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#F39C12;flex-shrink:0;"></div>
-              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
-                <div style="width:24%;height:100%;background:#F39C12;border-radius:4px;opacity:0.8;"></div>
-              </div>
+              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;"><div style="width:24%;height:100%;background:#F39C12;border-radius:4px;opacity:0.8;"></div></div>
               <span style="font-size:0.7rem;color:var(--text-dim);width:28px;text-align:right;">24%</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#E67E22;flex-shrink:0;"></div>
-              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
-                <div style="width:15%;height:100%;background:#E67E22;border-radius:4px;opacity:0.8;"></div>
-              </div>
+              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;"><div style="width:15%;height:100%;background:#E67E22;border-radius:4px;opacity:0.8;"></div></div>
               <span style="font-size:0.7rem;color:var(--text-dim);width:28px;text-align:right;">15%</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#E74C3C;flex-shrink:0;"></div>
-              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
-                <div style="width:9%;height:100%;background:#E74C3C;border-radius:4px;opacity:0.8;"></div>
-              </div>
+              <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;"><div style="width:9%;height:100%;background:#E74C3C;border-radius:4px;opacity:0.8;"></div></div>
               <span style="font-size:0.7rem;color:var(--text-dim);width:28px;text-align:right;">9%</span>
             </div>
           </div>
@@ -1127,29 +761,134 @@
         </div>
       </div>
 
+      <!-- HR ANALYTICS — NEW PROJECT -->
+      <div class="project-card hr-featured fade-in">
+        <div class="project-content">
+          <div class="project-badge">📊 Excel · Power Query · PivotTables</div>
+          <h3 class="project-title">HR Analytics Workforce Dashboard</h3>
+          <p class="project-summary">
+            <strong style="color:var(--text)">Problem:</strong> HR leadership needed a single view of workforce health — headcount, attrition, performance, and training ROI — across a 2,845-employee organisation. <strong style="color:var(--text)">Approach:</strong> Built a three-dashboard Excel suite using Power Query for data cleaning, PivotTables with the Data Model for analysis, and slicers for interactivity. Raw data had currency fields stored as text, hidden CHAR(160) characters, and date serial issues — all resolved in the Power Query pipeline before any chart touched the data. <strong style="color:var(--text)">Outcome:</strong> Three interactive dashboards covering Workforce Overview, Employee Performance &amp; Engagement, and Training &amp; HR Investment — ready to filter by department, business unit, or training program.
+          </p>
+          <ul class="project-insights">
+            <li>Software Engineering attrition is 17.9% — the highest in the company and well above the 13.6% average</li>
+            <li>42.6% of the workforce is aged 55+ (1,213 employees), flagging an urgent succession planning gap</li>
+            <li>Only 50.8% of training sessions succeeded — ~$785K of the $1.59M training budget may not be delivering value</li>
+            <li>Technical Skills program has the lowest success rate (45.1%) despite 543 participants and $304K in spend</li>
+            <li>Engagement scores are flat across all performance bands (2.86–2.96), meaning high performers feel no more valued than PIP employees</li>
+          </ul>
+          <div class="project-tools">
+            <span class="tool-pill">Excel</span>
+            <span class="tool-pill">Power Query</span>
+            <span class="tool-pill">PivotTables</span>
+            <span class="tool-pill">Data Model</span>
+            <span class="tool-pill">Slicers</span>
+            <span class="tool-pill">DAX</span>
+            <span class="tool-pill">Dashboard Design</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Elma-Fortunate/HR-Analytics" target="_blank" rel="noopener" class="project-link">
+              View on GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Decorative visual panel -->
+        <div class="project-visual">
+          <p style="font-size:0.72rem;color:var(--text-dim);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Dashboard KPIs</p>
+          <div class="hr-kpi-grid">
+            <div class="hr-kpi">
+              <div class="hr-kpi-val">2,845</div>
+              <div class="hr-kpi-lbl">Employees</div>
+            </div>
+            <div class="hr-kpi">
+              <div class="hr-kpi-val">13.6%</div>
+              <div class="hr-kpi-lbl">Attrition Rate</div>
+            </div>
+            <div class="hr-kpi">
+              <div class="hr-kpi-val">$1.59M</div>
+              <div class="hr-kpi-lbl">Training Spend</div>
+            </div>
+            <div class="hr-kpi">
+              <div class="hr-kpi-val">50.8%</div>
+              <div class="hr-kpi-lbl">Training Success</div>
+            </div>
+          </div>
+
+          <div style="padding-top:0.6rem;border-top:1px solid var(--border);">
+            <p style="font-size:0.68rem;color:var(--text-dim);margin-bottom:0.5rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Attrition by Dept</p>
+            <div class="hr-outcome-bar">
+              <div class="hr-bar-row">
+                <span style="font-size:0.68rem;color:var(--text-dim);width:68px;flex-shrink:0;">Software Eng</span>
+                <div class="hr-bar-track"><div class="hr-bar-fill" style="width:89%;background:#E74C3C;"></div></div>
+                <span style="font-size:0.68rem;color:#E74C3C;width:28px;text-align:right;">18%</span>
+              </div>
+              <div class="hr-bar-row">
+                <span style="font-size:0.68rem;color:var(--text-dim);width:68px;flex-shrink:0;">Production</span>
+                <div class="hr-bar-track"><div class="hr-bar-fill" style="width:84%;background:#E67E22;"></div></div>
+                <span style="font-size:0.68rem;color:#E67E22;width:28px;text-align:right;">17%</span>
+              </div>
+              <div class="hr-bar-row">
+                <span style="font-size:0.68rem;color:var(--text-dim);width:68px;flex-shrink:0;">IT/IS</span>
+                <div class="hr-bar-track"><div class="hr-bar-fill" style="width:41%;background:#F39C12;"></div></div>
+                <span style="font-size:0.68rem;color:#F39C12;width:28px;text-align:right;">8%</span>
+              </div>
+              <div class="hr-bar-row">
+                <span style="font-size:0.68rem;color:var(--text-dim);width:68px;flex-shrink:0;">Sales</span>
+                <div class="hr-bar-track"><div class="hr-bar-fill" style="width:16%;background:#2ECC71;"></div></div>
+                <span style="font-size:0.68rem;color:#2ECC71;width:28px;text-align:right;">3%</span>
+              </div>
+              <div class="hr-bar-row">
+                <span style="font-size:0.68rem;color:var(--text-dim);width:68px;flex-shrink:0;">Admin</span>
+                <div class="hr-bar-track"><div class="hr-bar-fill" style="width:6%;background:#2ECC71;"></div></div>
+                <span style="font-size:0.68rem;color:#2ECC71;width:28px;text-align:right;">1%</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-top:0.6rem;border-top:1px solid var(--border);">
+            <p style="font-size:0.68rem;color:var(--text-dim);margin-bottom:0.4rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Age Distribution</p>
+            <div style="display:flex;align-items:flex-end;gap:4px;height:48px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;background:var(--border);border-radius:2px 2px 0 0;" title="251"></div>
+                <span style="font-size:0.58rem;color:var(--text-dim);">18-24</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;height:19px;background:var(--accent);opacity:0.5;border-radius:2px 2px 0 0;"></div>
+                <span style="font-size:0.58rem;color:var(--text-dim);">25-34</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;height:18px;background:var(--accent);opacity:0.5;border-radius:2px 2px 0 0;"></div>
+                <span style="font-size:0.58rem;color:var(--text-dim);">35-44</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;height:17px;background:var(--accent);opacity:0.5;border-radius:2px 2px 0 0;"></div>
+                <span style="font-size:0.58rem;color:var(--text-dim);">45-54</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;height:48px;background:var(--accent);opacity:0.9;border-radius:2px 2px 0 0;"></div>
+                <span style="font-size:0.58rem;color:var(--accent);font-weight:700;">55+</span>
+              </div>
+            </div>
+            <p style="font-size:0.68rem;color:var(--accent);margin-top:0.35rem;">55+ is the largest cohort — 42.6% of workforce</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Air Quality Index -->
       <div class="project-card fade-in">
         <div class="project-badge">Environmental Analytics</div>
         <h3 class="project-title">Air Quality Index — India</h3>
-        <p class="project-summary">
-          Analyzed multi-city AQI datasets across India using Python, identifying temporal and geographic pollution patterns. Delivered visualizations that surface which cities and seasons carry the highest pollution risk.
-        </p>
+        <p class="project-summary">Analyzed multi-city AQI datasets across India using Python, identifying temporal and geographic pollution patterns. Delivered visualizations that surface which cities and seasons carry the highest pollution risk.</p>
         <ul class="project-insights">
           <li>Identified peak pollution windows across major Indian metros</li>
           <li>Surfaced correlations between industrial zones and AQI spikes</li>
         </ul>
         <div class="project-tools">
-          <span class="tool-pill">Python</span>
-          <span class="tool-pill">Pandas</span>
-          <span class="tool-pill">Matplotlib</span>
-          <span class="tool-pill">Seaborn</span>
-          <span class="tool-pill">EDA</span>
+          <span class="tool-pill">Python</span><span class="tool-pill">Pandas</span><span class="tool-pill">Matplotlib</span><span class="tool-pill">Seaborn</span><span class="tool-pill">EDA</span>
         </div>
         <div class="project-footer">
-          <a href="https://github.com/Elma-Fortunate/Air-Quality-Index-India-" target="_blank" rel="noopener" class="project-link">
-            GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-          </a>
+          <a href="https://github.com/Elma-Fortunate/AirQualityIndex-India" target="_blank" rel="noopener" class="project-link">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
         </div>
       </div>
 
@@ -1157,49 +896,33 @@
       <div class="project-card fade-in">
         <div class="project-badge">Risk Analytics</div>
         <h3 class="project-title">Insurance Risk Analysis</h3>
-        <p class="project-summary">
-          Investigated key drivers behind insurance claim risk and customer profiling. Applied classification models to segment policyholders by risk level, enabling more accurate premium pricing recommendations.
-        </p>
+        <p class="project-summary">Investigated key drivers behind insurance claim risk and customer profiling. Applied classification models to segment policyholders by risk level, enabling more accurate premium pricing recommendations.</p>
         <ul class="project-insights">
           <li>Identified the top 4 predictors of high-risk insurance claims</li>
           <li>Built classification model to segment policyholders by risk tier</li>
         </ul>
         <div class="project-tools">
-          <span class="tool-pill">Python</span>
-          <span class="tool-pill">Scikit-learn</span>
-          <span class="tool-pill">Classification</span>
-          <span class="tool-pill">EDA</span>
+          <span class="tool-pill">Python</span><span class="tool-pill">Scikit-learn</span><span class="tool-pill">Classification</span><span class="tool-pill">EDA</span>
         </div>
         <div class="project-footer">
-          <a href="https://github.com/Elma-Fortunate/Insurance-Risk-Analysis" target="_blank" rel="noopener" class="project-link">
-            GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-          </a>
+          <a href="https://github.com/Elma-Fortunate/InsuranceRiskAnalysis" target="_blank" rel="noopener" class="project-link">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
         </div>
       </div>
 
-      <!-- Spotify Wrapped 2025 -->
+      <!-- Spotify Wrapped -->
       <div class="project-card fade-in">
         <div class="project-badge">Data Storytelling</div>
         <h3 class="project-title">Spotify Wrapped 2025</h3>
-        <p class="project-summary">
-          Analyzed personal Spotify listening data to uncover patterns in music preferences, genre shifts, and listening habits over time. Created Power BI visualizations that tell a compelling personal data story.
-        </p>
+        <p class="project-summary">Analyzed personal Spotify listening data to uncover patterns in music preferences, genre shifts, and listening habits over time. Created Power BI visualizations that tell a compelling personal data story.</p>
         <ul class="project-insights">
           <li>Revealed peak listening windows and genre evolution over 12 months</li>
           <li>Demonstrated exploratory analysis and data storytelling skills</li>
         </ul>
         <div class="project-tools">
-          <span class="tool-pill">Python</span>
-          <span class="tool-pill">Power BI</span>
-          <span class="tool-pill">Pandas</span>
-          <span class="tool-pill">Data Viz</span>
+          <span class="tool-pill">Python</span><span class="tool-pill">Power BI</span><span class="tool-pill">Pandas</span><span class="tool-pill">Data Viz</span>
         </div>
         <div class="project-footer">
-          <a href="https://github.com/Elma-Fortunate/Spotify-Wrapped" target="_blank" rel="noopener" class="project-link">
-            GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-          </a>
+          <a href="https://github.com/Elma-Fortunate/SpotifyWrapped2025" target="_blank" rel="noopener" class="project-link">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
         </div>
       </div>
 
@@ -1207,41 +930,27 @@
       <div class="project-card fade-in" style="grid-column: 1 / -1;">
         <div class="project-badge">Finance</div>
         <h3 class="project-title">Bank Loan Analysis</h3>
-        <p class="project-summary">
-          <strong style="color:var(--text)">Problem:</strong> Financial institutions need to understand what drives loan defaults to improve risk assessment. <strong style="color:var(--text)">Approach:</strong> Analyzed loan portfolio data to identify key factors influencing approval rates and default likelihood. Built Power BI dashboards and visual reports for credit risk teams. <strong style="color:var(--text)">Outcome:</strong> Delivered actionable recommendations for smarter lending decisions.
-        </p>
+        <p class="project-summary"><strong style="color:var(--text)">Problem:</strong> Financial institutions need to understand what drives loan defaults to improve risk assessment. <strong style="color:var(--text)">Approach:</strong> Analyzed loan portfolio data to identify key factors influencing approval rates and default likelihood. Built Power BI dashboards and visual reports for credit risk teams. <strong style="color:var(--text)">Outcome:</strong> Delivered actionable recommendations for smarter lending decisions.</p>
         <ul class="project-insights">
           <li>Pinpointed borrower attributes most strongly associated with default risk</li>
           <li>Built interactive dashboards to support loan officer decision-making</li>
         </ul>
         <div class="project-tools">
-          <span class="tool-pill">Python</span>
-          <span class="tool-pill">Power BI</span>
-          <span class="tool-pill">SQL</span>
-          <span class="tool-pill">Risk Analysis</span>
-          <span class="tool-pill">Visualization</span>
+          <span class="tool-pill">Python</span><span class="tool-pill">Power BI</span><span class="tool-pill">SQL</span><span class="tool-pill">Risk Analysis</span><span class="tool-pill">Visualization</span>
         </div>
         <div class="project-footer">
-          <a href="https://github.com/Elma-Fortunate/Bank-Loan-Analysis" target="_blank" rel="noopener" class="project-link">
-            View on GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-          </a>
+          <a href="https://github.com/Elma-Fortunate/BankLoanAnalysis" target="_blank" rel="noopener" class="project-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ==============================
-       EXPERIENCE & SKILLS
-  ============================== -->
   <section id="experience">
     <p class="section-label">Background</p>
     <h2 class="section-title" style="margin-bottom:3rem;">Experience &amp; Skills</h2>
-
     <div class="exp-skills-grid">
       <div class="timeline">
-
         <div class="exp-item">
           <div class="exp-meta">Feb 2025 – Apr 2025</div>
           <div class="exp-role">Data Analyst Intern</div>
@@ -1254,7 +963,6 @@
             <li>Modeled rural financial instability in Uganda using Random Forest</li>
           </ul>
         </div>
-
         <div class="exp-item">
           <div class="exp-meta">Dec 2024 – Mar 2025</div>
           <div class="exp-role">ML & AI Intern</div>
@@ -1266,7 +974,6 @@
             <li>Conducted EDA to identify trends and inform model development</li>
           </ul>
         </div>
-
         <div class="exp-item">
           <div class="exp-meta">Jun 2024 – Jul 2024</div>
           <div class="exp-role">Data Science Intern</div>
@@ -1277,93 +984,45 @@
             <li>Designed Power BI dashboards for stakeholder decision-making</li>
           </ul>
         </div>
-
       </div>
-
       <div class="skills-panel">
         <div class="skill-group">
           <h4>Programming & Analysis</h4>
           <div class="skill-bars">
-            <div class="skill-row">
-              <span class="skill-name">Python</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div>
-            </div>
-            <div class="skill-row">
-              <span class="skill-name">SQL</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
-            </div>
-            <div class="skill-row">
-              <span class="skill-name">Pandas/NumPy</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div>
-            </div>
+            <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div></div>
+            <div class="skill-row"><span class="skill-name">SQL</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div></div>
+            <div class="skill-row"><span class="skill-name">Pandas/NumPy</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div></div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4>Visualization & BI</h4>
           <div class="skill-bars">
-            <div class="skill-row">
-              <span class="skill-name">Power BI</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
-            </div>
-            <div class="skill-row">
-              <span class="skill-name">Matplotlib</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
-            </div>
-            <div class="skill-row">
-              <span class="skill-name">QGIS</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72%"></div></div>
-            </div>
+            <div class="skill-row"><span class="skill-name">Power BI</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div></div>
+            <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div></div>
+            <div class="skill-row"><span class="skill-name">QGIS</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72%"></div></div></div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4>Machine Learning</h4>
           <div class="skill-bars">
-            <div class="skill-row">
-              <span class="skill-name">Scikit-learn</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
-            </div>
-            <div class="skill-row">
-              <span class="skill-name">TensorFlow</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%"></div></div>
-            </div>
-            <div class="skill-row">
-              <span class="skill-name">Random Forest</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%"></div></div>
-            </div>
+            <div class="skill-row"><span class="skill-name">Scikit-learn</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div></div>
+            <div class="skill-row"><span class="skill-name">TensorFlow</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75%"></div></div></div>
+            <div class="skill-row"><span class="skill-name">Random Forest</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%"></div></div></div>
           </div>
         </div>
-
-        <!-- Certs -->
         <div class="skill-group">
           <h4>Certifications</h4>
           <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.25rem;">
-            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;">
-              <span style="color:var(--accent);margin-top:2px;">✓</span>
-              Data Analysis & Visualization with Power BI — <span style="color:var(--text-dim)">Microsoft</span>
-            </div>
-            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;">
-              <span style="color:var(--accent);margin-top:2px;">✓</span>
-              Data Scientist Associate — <span style="color:var(--text-dim)">DataCamp</span>
-            </div>
-            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;">
-              <span style="color:var(--accent);margin-top:2px;">✓</span>
-              Data Analytics Essentials — <span style="color:var(--text-dim)">Cisco</span>
-            </div>
-            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;">
-              <span style="color:var(--accent);margin-top:2px;">✓</span>
-              Python for Data Science & AI — <span style="color:var(--text-dim)">IBM</span>
-            </div>
+            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;"><span style="color:var(--accent);margin-top:2px;">✓</span>Data Analysis & Visualization with Power BI — <span style="color:var(--text-dim)">Microsoft</span></div>
+            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;"><span style="color:var(--accent);margin-top:2px;">✓</span>Data Scientist Associate — <span style="color:var(--text-dim)">DataCamp</span></div>
+            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;"><span style="color:var(--accent);margin-top:2px;">✓</span>Data Analytics Essentials — <span style="color:var(--text-dim)">Cisco</span></div>
+            <div style="font-size:0.82rem;color:var(--text);display:flex;gap:0.5rem;align-items:flex-start;"><span style="color:var(--accent);margin-top:2px;">✓</span>Python for Data Science & AI — <span style="color:var(--text-dim)">IBM</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==============================
-       CV SECTION
-  ============================== -->
   <section id="cv">
     <div class="cv-inner fade-in">
       <div class="cv-text">
@@ -1377,9 +1036,6 @@
     </div>
   </section>
 
-  <!-- ==============================
-       CONTACT
-  ============================== -->
   <section id="contact">
     <div class="contact-grid">
       <div class="contact-text fade-in">
@@ -1388,134 +1044,67 @@
         <p>Open to data analyst, data scientist, and BI roles — as well as freelance projects and collaborations. Let's talk data.</p>
         <a href="mailto:elmafortunatep@gmail.com" class="btn btn-primary">Send a Message</a>
       </div>
-
       <div class="fade-in" style="display:flex;flex-direction:column;gap:1.5rem;">
         <div class="contact-links">
           <a href="mailto:elmafortunatep@gmail.com" class="contact-link">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-            </div>
-            <div class="contact-link-body">
-              <div class="contact-link-label">Email</div>
-              <div class="contact-link-value">elmafortunatep@gmail.com</div>
-            </div>
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></div>
+            <div class="contact-link-body"><div class="contact-link-label">Email</div><div class="contact-link-value">elmafortunatep@gmail.com</div></div>
           </a>
           <a href="https://www.linkedin.com/in/elma-phiri" target="_blank" rel="noopener" class="contact-link">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-            <div class="contact-link-body">
-              <div class="contact-link-label">LinkedIn</div>
-              <div class="contact-link-value">linkedin.com/in/elmafortunatephiri/</div>
-            </div>
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="contact-link-body"><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">linkedin.com/in/elmafortunatephiri/</div></div>
           </a>
           <a href="https://github.com/Elma-Fortunate" target="_blank" rel="noopener" class="contact-link">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            </div>
-            <div class="contact-link-body">
-              <div class="contact-link-label">GitHub</div>
-              <div class="contact-link-value">github.com/Elma-Fortunate</div>
-            </div>
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
+            <div class="contact-link-body"><div class="contact-link-label">GitHub</div><div class="contact-link-value">github.com/Elma-Fortunate</div></div>
           </a>
           <a href="tel:+263782608513" class="contact-link">
-            <div class="contact-link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="contact-link-body">
-              <div class="contact-link-label">Phone</div>
-              <div class="contact-link-value">+263 78 260 8513</div>
-            </div>
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="contact-link-body"><div class="contact-link-label">Phone</div><div class="contact-link-value">+263 78 260 8513</div></div>
           </a>
         </div>
-
-        <!-- Education panel -->
         <div class="edu-panel">
           <h3>Education</h3>
-          <div class="edu-item">
-            <div class="edu-degree">BSc. Data Science</div>
-            <div class="edu-school">Adikavi Nannaya University</div>
-            <div class="edu-date">Aug 2022 – Mar 2025</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree">Applied Data Science Lab</div>
-            <div class="edu-school">WorldQuant University</div>
-            <div class="edu-date">Jun 2024 – May 2025</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree">Associate Data Science</div>
-            <div class="edu-school">DataCamp</div>
-            <div class="edu-date">Apr 2024 – Sep 2024</div>
-          </div>
+          <div class="edu-item"><div class="edu-degree">BSc. Data Science</div><div class="edu-school">Adikavi Nannaya University</div><div class="edu-date">Aug 2022 – Mar 2025</div></div>
+          <div class="edu-item"><div class="edu-degree">Applied Data Science Lab</div><div class="edu-school">WorldQuant University</div><div class="edu-date">Jun 2024 – May 2025</div></div>
+          <div class="edu-item"><div class="edu-degree">Associate Data Science</div><div class="edu-school">DataCamp</div><div class="edu-date">Apr 2024 – Sep 2024</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==============================
-       FOOTER
-  ============================== -->
   <footer>
     <p>© 2025 Elma Fortunate Phiri · Harare, Zimbabwe</p>
     <p style="font-size:0.78rem;color:var(--muted);">Built with care · Open to opportunities</p>
   </footer>
 
-  <!-- ==============================
-       JAVASCRIPT
-  ============================== -->
   <script>
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // Mobile nav toggle
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
     const toggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    // Intersection Observer for fade-ins and skill bars
+    toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => navLinks.classList.remove('open')); });
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-
-          // Animate skill bars
-          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-            bar.style.width = bar.dataset.width;
-          });
-
-          // Animate experience items
-          entry.target.querySelectorAll('.exp-item').forEach((item, i) => {
-            setTimeout(() => item.classList.add('visible'), i * 150);
-          });
-
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width; });
+          entry.target.querySelectorAll('.exp-item').forEach((item, i) => { setTimeout(() => item.classList.add('visible'), i * 150); });
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-in, #experience').forEach(el => observer.observe(el));
-
-    // Also trigger skill bars when skills section is visible
     const skillsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-            bar.style.width = bar.dataset.width;
-          });
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width; });
           skillsObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.2 });
     document.querySelectorAll('.skills-panel').forEach(el => skillsObserver.observe(el));
   </script>
-
 </body>
 </html>
